@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Snap Zone</h2>
+<input id="f" type="file" multiple accept="image/*"><br><br>
+<div id="g" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+
+<script>
+f.onchange=e=>[...e.target.files].forEach(file=>{
+ let r=new FileReader();
+ r.onload=x=>{
+   g.innerHTML+=`<div><img src="${x.target.result}" width="150"><br>${file.name}</div>`;
+ };
+ r.readAsDataURL(file);
+});
+</script>
+</body>
+</html>
